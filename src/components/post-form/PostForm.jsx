@@ -99,7 +99,7 @@ export default function PostForm({post}) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                     defaultValue={getValues("slug")}
-                    disable={post}
+                    disabled={post}
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
