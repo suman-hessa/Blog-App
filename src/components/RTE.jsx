@@ -13,7 +13,7 @@ export default function RTE({name, control, label, defaultValue=''}) {
             control={control}
             render={({field})=>(
                  <Editor
-        apiKey='xyh2f9qjrbno7vccgeufrwi3kuh1m4skhy0hsupuh8dhlxta'
+        apiKey={config.tinymceApiKey}
         initialValue={defaultValue}
         init={{
           height: 500,
