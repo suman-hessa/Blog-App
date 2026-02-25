@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import {AddPosts, AllPosts, EditPosts, Home, Login, Signup, Post} from './pages/index.js'
+import {AddPosts, MyPosts, EditPosts, Home, Login, Signup, Post} from './pages/index.js'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { AuthLayout } from './components/index.js'
 import store from './store/store.js'
@@ -30,9 +30,9 @@ const router = createBrowserRouter([
         </AuthLayout>      
         },
       {
-        path: "/all-posts",
+        path: "/my-posts",
         element: <AuthLayout authentication={true}>
-          <AllPosts />
+          <MyPosts />
         </AuthLayout>
       },
       {
@@ -58,11 +58,9 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
      <Provider store={store}>
       <RouterProvider router={router}>
       <App />
       </RouterProvider>
      </Provider>    
-    </StrictMode>,
 )

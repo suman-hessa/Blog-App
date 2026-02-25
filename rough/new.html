@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .image{
-      width: 400px;
+    .product-list{
+      list-style: none;
+    }
+    .search{
+      padding: 2rem;
     }
   </style>
 </head>
 <body>
-    <img src="https://nyc.cloud.appwrite.io/v1/storage/buckets/697a3ed3001e51c15628/files/698d974c003ce1d7494f/view?project=697a37980019ad15b9f3" alt="" class="image">
+    <input type="text" id="search" onkeyup=searchFun()>
+    <ul class="product-list">
+      <li><h2>fruits</h2></li>
+      <li><h2>vegetables</h2></li>
+      <li><h2>shoes</h2></li>
+      <li><h2>clothes</h2></li>
+      <li><h2>stationary</h2></li>
+    </ul>  
+    <script src="new.js"></script>
 </body>
 </html>

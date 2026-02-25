@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router'
 import appwriteServices from '../appwrite/conf.js'
 import { Button, Container } from '../components/index.js'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { deletePost as deletePostStore } from '../store/postSlice.js'
 import { useNavigate } from 'react-router'
 import parse from 'html-react-parser'
 
@@ -13,6 +14,7 @@ function Post() {
   const [img, setImg] = useState(null)
   const navigate = useNavigate()
   const userData = useSelector((state)=>state.auth.userData);
+  const dispatch = useDispatch()
 
   useEffect(()=>{
     try {
@@ -29,14 +31,15 @@ function Post() {
   }, [params]);
 
   const deletePost = async ()=>{
-    const deletedPost = await appwriteServices.deletePost(post.$id);
-    if(deletedPost){
-      const deletedFile = await appwriteServices.deleteFile(post.
-        featuredImage)
-        if(deletedFile){
-          navigate("/")
-        }
+    try {
+      await appwriteServices.deletePost(post.$id);
+      await appwriteServices.deleteFile(post.featuredImage);
+      dispatch(deletePostStore({documentId: post.$id}));
+      navigate("/")
+    } catch (error) {
+     console.log("error msg: ", error) 
     }
+    
   }
 
   const editPost = async ()=>{

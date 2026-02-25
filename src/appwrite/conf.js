@@ -79,7 +79,7 @@ class AppwriteServices{
         }
     }
 
-    async getPosts(queries= [Query.equal("status", "active")]){
+    async getPosts(queries= []){
         try {
             return await this.databases.listRows({
                 databaseId: config.appwriteDatabaseId,

@@ -1,5 +1,5 @@
 import AddPosts from "./AddPosts.jsx";
-import AllPosts from "./AllPosts.jsx";
+import MyPosts from "./MyPosts.jsx";
 import EditPosts from "./EditPosts.jsx";
 import Home from "./Home.jsx";
 import Login from "./Login.jsx";
@@ -8,7 +8,7 @@ import Signup from "./Signup.jsx";
 
 export {
     AddPosts,
-    AllPosts,
+    MyPosts,
     EditPosts,
     Home,
     Login,
