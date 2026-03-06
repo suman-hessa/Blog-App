@@ -13,6 +13,7 @@ import RTE from "./RTE.jsx";
 import Postcard from "./Postcard.jsx";
 import PostForm from "./post-form/PostForm.jsx";
 import MyCard from "./MyCard.jsx";
+import MobileNav from "./MobileNav.jsx";
 
 export {
     Header, 
@@ -29,5 +30,6 @@ export {
     RTE,
     Postcard,
     PostForm,
-    MyCard
+    MyCard,
+    MobileNav
 }

@@ -16,27 +16,23 @@ function Home() {
 
   if(activePosts.length == 0){
   return (
-    <Container>
       <h1 className='text-3xl text-center py-8 uppercase font-semibold'>{isLoggedIn? "No posts available": "login to read posts"}</h1>
-    </Container>
   ) 
  }
  else{
   return(
-    <div className='w-full py-8'>
-      <Container>
+    <div className='py-8 px-4 w-full'>
         {
           isLoggedIn?
-          (<div className='flex flex-wrap gap-4'>
+          (<div className='border p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
           {activePosts.map((post)=>(
-          <div key={post.$id} className='p-2 w-1/4'>
+          <div key={post.$id} className=''>
             <MyCard {...post}/>
           </div>
          ))}
         </div>)
         : <div className='w-full bg-blue-300 p-4 text-3xl text-bold'>Login to read posts</div>
       }
-    </Container>
     </div>
   )
  }

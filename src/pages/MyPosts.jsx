@@ -19,9 +19,9 @@ export default function MyPosts() {
     return (<h1 className='py-8 text-3xl text-center bg-yellow-300'>No posts available</h1>)
   }else{
       return (
-    <div className='w-full flex flex-wrap gap-4 py-8'>
+    <div className='w-full flex flex-col sm:flex-row sm:flex-wrap gap-4 py-8 px-4'>
       {myPosts.map((post)=>(
-        <div key={post.$id} className='w-1/4'>
+        <div key={post.$id} className='grow min-w-sm'>
           <MyCard {...post} />
         </div>
       ))}

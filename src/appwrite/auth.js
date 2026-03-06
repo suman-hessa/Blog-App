@@ -1,5 +1,5 @@
 import config from '../config/config.js';
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID, OAuthProvider} from "appwrite";
 
 class AuthServices{
     client = new Client()
@@ -22,7 +22,7 @@ class AuthServices{
                 return createdAccount;
             }
         } catch (error) {
-            console.log(`Appwrite services :: createAccount :: error`, error);
+            throw error;
         }
     }
 
@@ -49,6 +49,18 @@ class AuthServices{
             return await this.account.deleteSessions()
         } catch (error) {
             console.log("Appwrite service :: logout :: error", error);
+        }
+    }
+
+    async loginWithGoogle(){
+        try {
+            const createdAccount = await this.account.createOAuth2Session({
+                provider: OAuthProvider.Google,
+                success: 'http://localhost:5173/',
+                failure: 'http://localhost:5173/fail'
+            })
+        } catch (error) {
+            console.log("Appwrite service :: loginWithGoogle :: error", error)
         }
     }
 }

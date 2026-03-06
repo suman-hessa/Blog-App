@@ -10,6 +10,7 @@ import parse from 'html-react-parser'
 function Post() {
   const params = useParams()
   const [post, setPost] = useState([])
+  const [loader, setLoader] = useState(true);
   const[error, setError] = useState("")
   const [img, setImg] = useState(null)
   const navigate = useNavigate()
@@ -27,6 +28,9 @@ function Post() {
       })
     } catch (error) {
       setError(error.msg);
+    }
+    finally{
+      setLoader(false);
     }
   }, [params]);
 
@@ -46,7 +50,8 @@ function Post() {
     navigate(`/edit-post/${post.$id}`)
   }
   
-  return (
+  if(!loader){
+    return (
    <Container className='relative py-8'>
     {userData.$id == post.userId && 
     <div className='flex absolute top-10 right-10 gap-4'>
@@ -63,6 +68,10 @@ function Post() {
     </div>
    </Container>
   )
+  }else{
+    return (<div>Loading...</div>)
+  }
+  
 
 }
 export default Post

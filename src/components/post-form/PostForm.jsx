@@ -76,9 +76,8 @@ export default function PostForm({post}) {
     }, [watch, transformSlug, setValue])
 
   return (
-    <Container className='py-8'>
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="w-full md:flex md:flex-wrap mt-4 px-3">
+            <div className="md:w-2/3 px-2">
                 <Input
                     label="Title :"
                     placeholder="Title"
@@ -99,7 +98,7 @@ export default function PostForm({post}) {
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
-            <div className="w-1/3 px-2">
+            <div className="mt-4 md:w-1/3 px-2">
                 <Input
                     label="Featured Image :"
                     type="file"
@@ -127,8 +126,6 @@ export default function PostForm({post}) {
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>
-        </form>
-    </Container>
-        
+        </form>    
     )
 }
