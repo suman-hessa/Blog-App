@@ -55,7 +55,7 @@ function Header() {
                 authStatus? <li>
                   <LogoutBtn />
                 </li>: <Button 
-                className='inline-bock px-6 py-2 duration-200 bg-purple-500 hover:bg-purple-600 rounded-lg cursor-pointer text-gray-100'
+                className='inline-bock px-6 py-2 duration-200 bg-blue-500 hover:bg-blue-600 rounded-lg cursor-pointer text-gray-100'
                 ><Link to={"/login"}>Login</Link></Button>
               }
             </ul>
@@ -72,7 +72,7 @@ function Header() {
         </div>
       {/* mobile-menu */}
       <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen? 'max-h-64 opacity-100': 'max-h-0 opacity-0'} overflow-hidden bg-gray-50`}>
-        <ul className='flex flex-col p-4 space-y-2'>
+        <ul className='flex flex-col p-4 space-y-2 font-medium'>
           {navItems.map((item)=>(
           item.active? <li key={item.name}>
             <Link
@@ -85,14 +85,16 @@ function Header() {
         ))}
         {
           authStatus ? <li>
-            <LogoutBtn className={`inline-block`}/>
-          </li>: <Button 
+            <LogoutBtn/>
+          </li>: <li>
+            <button 
                 onClick={()=>(
                   handleMenu(),
                   navigate('/login')
                 )}
-                className='inline px-6 py-2 duration-200 bg-purple-500 hover:bg-purple-600 rounded-lg cursor-pointer text-gray-100'
-                >Login</Button>
+                className='inline-block px-6 py-2 duration-200 bg-blue-500 hover:bg-blue-600 rounded-lg cursor-pointer text-gray-100'
+                >login</button>
+          </li> 
         }
         </ul>
         

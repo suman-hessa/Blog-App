@@ -76,17 +76,17 @@ export default function PostForm({post}) {
     }, [watch, transformSlug, setValue])
 
   return (
-        <form onSubmit={handleSubmit(submit)} className="w-full md:flex md:flex-wrap mt-4 px-3">
+        <form onSubmit={handleSubmit(submit)} className="w-full md:flex md:flex-wrap mt-4 px-3 py-6">
             <div className="md:w-2/3 px-2">
                 <Input
-                    label="Title :"
+                    label="Title "
                     placeholder="Title"
                     className="mb-4"
                     {...register("title", { required: true })}
                     defaultValue={getValues("title")}
                 />
                 <Input
-                    label="Slug :"
+                    label="Slug "
                     placeholder="Slug"
                     className="mb-4"
                     {...register("slug", { required: true })}
@@ -96,11 +96,11 @@ export default function PostForm({post}) {
                     defaultValue={getValues("slug")}
                     disabled={post && true}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE label="Content " name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="mt-4 md:w-1/3 px-2">
                 <Input
-                    label="Featured Image :"
+                    label="Featured Image "
                     type="file"
                     className="mb-4"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
@@ -119,10 +119,10 @@ export default function PostForm({post}) {
                     options={["active", "inactive"]}
                     label="Status"
                     className="mb-4"
+                    defaultValue="active"
                     {...register("status", { required: true })}
-                    defaultValue={getValues("status")}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                <Button type="submit" bgColor={post ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"} className="w-full">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>

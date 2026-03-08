@@ -7,7 +7,7 @@ import parse from 'html-react-parser'
 export default function RTE({name, control, label, defaultValue=''}) {
   return (
     <div className='w-full'>
-        {label && <label className='inline-block pl-1 mb-1'>{label}</label>}
+        {label && <label className='inline-block pl-1 mb-1 font-medium'>{label}</label>}
         <Controller
             name={name}
             control={control}

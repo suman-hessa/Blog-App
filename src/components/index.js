@@ -14,6 +14,7 @@ import Postcard from "./Postcard.jsx";
 import PostForm from "./post-form/PostForm.jsx";
 import MyCard from "./MyCard.jsx";
 import MobileNav from "./MobileNav.jsx";
+import OAuthButton from "./OAuthButton.jsx";
 
 export {
     Header, 
@@ -31,5 +32,6 @@ export {
     Postcard,
     PostForm,
     MyCard,
-    MobileNav
+    MobileNav,
+    OAuthButton
 }

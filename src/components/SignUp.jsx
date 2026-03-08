@@ -3,8 +3,9 @@ import authServices from '../appwrite/auth.js'
 import { Link, useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import {login as storeLogin} from '../store/authSlice.js'
-import {Input, Button, Logo, Container} from '../components/index.js'
+import {Input, Button, Logo, Container, OAuthButton} from '../components/index.js'
 import { useDispatch } from 'react-redux'
+import googlePng from '../../public/googleLogo.png'
 
 function SignUp() {
     const dispatch = useDispatch()
@@ -30,37 +31,38 @@ function SignUp() {
     }
 
   return (
-    <Container>
-        <div className='w-full justify-center items-center'>
-            <div className={`w-full mx-auto max-w-lg p-10 rounded-lg bg-gray-200`}>
+        <div className='flex items-center justify-center w-full shadow-2xs'>
+            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-sm p-10 border border-black/10`}>
                 <div className='flex justify-center'>
                     <span className='inline-block mb-2'>
                         <Logo width='100%'/>
                     </span>
                 </div>
-                <h1 className='text-center font-medium text-xl leading-tight'>Sign Up to create account</h1>
-                <p className='text-center text-base'>Already have an account? 
+                <h1 className='text-center text-2xl font-bold leading-tight'>Sign Up to create account</h1>
+                <p className='mt-2 text-center text-base text-black/60'>Already have an account?&nbsp; 
                     <Link
                     to="/login"
-                    className='ml-1 text-blue-400 hover:underline'>
+                    className='font-medium text-primary transition-all duration-200 hover:underline text-blue-400'>
                      Sign In
                     </Link>
                 </p>
                 {error && <p className="bg-red-500 mt-8 text-center">{error}</p>}
-                <form onSubmit={handleSubmit(signup)} className='mt-8'>
+                <OAuthButton logo={googlePng} >continue with google</OAuthButton>
+                <div className='text-center mt-2 text-gray-600'>or</div>
+                <form onSubmit={handleSubmit(signup)} className='mt-2'>
                     <div className='space-y-5'>
                         <Input
-                        label="Full Name: "
+                        label="Full Name "
                         placeholder="Enter your full name"
                         {...register("name", {required: true})}
                         />
                         <Input
-                         label="Email: "
+                         label="Email "
                          placeholder="Enter your email"
                          {...register("email", {required: true})}
                         />
                         <Input 
-                        label="Password: "
+                        label="Password "
                         placeholder="Enter your password"
                         type='password'
                         {...register("password", {
@@ -70,7 +72,8 @@ function SignUp() {
                         />
                         <Button
                         type='submit'
-                        className='hover:bg-blue-400 duration-200'
+                        bgColor='bg-blue-500'
+                        className='hover:bg-blue-600 duration-200 w-full'
                         >
                             Create Account
                         </Button>
@@ -79,7 +82,6 @@ function SignUp() {
             </div>
 
         </div>
-    </Container>
   )
 }
 
