@@ -56,7 +56,7 @@ class AuthServices{
         try {
             const createdAccount = await this.account.createOAuth2Session({
                 provider: OAuthProvider.Google,
-                success: 'http://localhost:5173/',
+                success: 'https://blog-app-coral-alpha.vercel.app/' || 'http://localhost:5173/',
                 failure: 'http://localhost:5173/fail'
             })
         } catch (error) {
